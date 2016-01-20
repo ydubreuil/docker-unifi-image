@@ -1,0 +1,2 @@
+#!/bin/bash
+java -Xmx256M -jar /usr/lib/unifi/lib/ace.jar start
