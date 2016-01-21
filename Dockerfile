@@ -14,12 +14,12 @@ COPY ./unifi-run /etc/service/unifi/run
 COPY ./runit-log-run /etc/service/unifi/log/run
 
 #Unifi data
-RUN \
- 	mkdir -p /usr/lib/unifi/data && \
-  	touch /usr/lib/unifi/data/.unifidatadir
+RUN mkdir -p /usr/lib/unifi/data && touch /usr/lib/unifi/data/.unifidatadir
 
 ADD http://dl.ubnt.com/unifi/4.7.6/unifi_sysvinit_all.deb /tmp/unifi_sysvinit_all.deb
 RUN dpkg --install /tmp/unifi_sysvinit_all.deb
+RUN rm /tmp/unifi_sysvinit_all.deb
+
 
 VOLUME /usr/lib/unifi/data
 VOLUME /var/log
